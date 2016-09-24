@@ -145,13 +145,12 @@ public class VigenereCipherTesterDriver
 		//finalPosition starts out as the length - 1, and current position starts at 0
 		if(currentPosition == finalPosition)
 		{
-			
+			m_keyHolder[currentPosition] = m_keyHolder[currentPosition]+1;
 			if(m_keyHolder[currentPosition] >= 26)
 			{
 				m_keyHolder[currentPosition] = 0;
 				return(1);
 			}
-			m_keyHolder[currentPosition] = m_keyHolder[currentPosition]+1;
 			return(0);
 		}
 		m_keyHolder[currentPosition] = m_keyHolder[currentPosition] + incrementKeyRecursive(finalPosition, currentPosition+1);

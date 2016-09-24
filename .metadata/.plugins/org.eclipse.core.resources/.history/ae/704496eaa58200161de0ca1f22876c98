@@ -105,63 +105,22 @@ public class VigenereCipherTesterDriver
 		}
 		
 		
-		m_cipherTester = new VigenereCipherTester(refinedCipherText.toCharArray(),firstWordLength,outputFinalName);
-		m_keyHolder = new int[keyLength];
 		
-		input.close();
-		
-		generateAllKeys();
 	}
 	
 	public void generateAllKeys()
 	{
-		int[] lastCombination = new int[m_keyHolder.length];
-		for(int x=0; x<m_keyHolder.length; x++)
-		{
-			m_keyHolder[x]=0;
-			lastCombination[x]=25;
-		}
 		
-		while(m_keyHolder != lastCombination)
-		{
-			m_cipherTester.testKey(m_keyHolder);
-			incrementKey();
-		}
-		m_cipherTester.testKey(lastCombination);
 	}
 	
 	private void incrementKey()
 	{
-		int errorCheck = 0;
-		errorCheck = incrementKeyRecursive(m_keyHolder.length -1, 0);
-		if(errorCheck == 1)
-		{
-			System.out.println("The key is looping");
-		}
+		
 	}
 	
 	private int incrementKeyRecursive(int finalPosition, int currentPosition)
 	{
-		//finalPosition starts out as the length - 1, and current position starts at 0
-		if(currentPosition == finalPosition)
-		{
-			
-			if(m_keyHolder[currentPosition] >= 26)
-			{
-				m_keyHolder[currentPosition] = 0;
-				return(1);
-			}
-			m_keyHolder[currentPosition] = m_keyHolder[currentPosition]+1;
-			return(0);
-		}
-		m_keyHolder[currentPosition] = m_keyHolder[currentPosition] + incrementKeyRecursive(finalPosition, currentPosition+1);
 		
-		if(m_keyHolder[currentPosition]>=26)
-		{
-			m_keyHolder[currentPosition]=0;
-			return(1);
-		}
-		return(0);
 	}
 
 }

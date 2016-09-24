@@ -28,8 +28,6 @@ public class VigenereCipherTester
 		m_cipherText = sanatizedCipherText;
 		m_firstWordLength = firstWordLengthInput;
 		m_outputFileName = outputFileName;
-		m_cipherTextNumbers = new int[m_cipherText.length];
-		m_firstWordNumbersCT = new int[m_firstWordLength];
 		
 		m_dictionary =  new Hashtable<Integer, String>(355000);
 		BufferedReader buffRead = null;
