@@ -70,8 +70,8 @@ public class VigenereCipherTesterDriver
 		//////////////////
 		
 		//Getting a valid file destination: must not exist previously, and must be a valid name.
-		System.out.println("Now enter the file name you wish to save this to.  \nGo ahead and omit the \".txt\" and don't leave any spaces. \n"
-				+ " Output file will be saved in the project-level folder.");
+		System.out.println("Now enter the file name you wish to save this to.  \nGo ahead and omit the \".txt\" and don't leave any spaces."
+				+ " To be completely honest, I'm not sure where it will go.");
 		
 		outputFileDestination = input.nextLine();
 		outputFinalName = outputFileDestination+".txt";
@@ -82,8 +82,8 @@ public class VigenereCipherTesterDriver
 			System.out.println("Sorry, but that name is taken. Please try again.");
 			while(filename.exists())
 			{
-				System.out.println("Now enter the file name you wish to save this to.  \nGo ahead and omit the \".txt\" and don't leave any spaces. \n"
-						+ " Output file will be saved in the project-level folder.");
+				System.out.println("Now enter the file name you wish to save this to. Go ahead and omit the \".txt\" and don't leave any spaces."
+						+ " To be completely honest, I'm not sure where it will go.");
 				
 				outputFileDestination = input.nextLine();
 				outputFinalName = outputFileDestination+".txt";

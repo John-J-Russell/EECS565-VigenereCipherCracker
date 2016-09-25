@@ -44,7 +44,6 @@ public class VigenereCipherTester
 				x++;
 			}
 			
-			/*
 			char[] test = new char[3];
 			test[0]='C';
 			test[1]='A';
@@ -56,7 +55,6 @@ public class VigenereCipherTester
 			System.out.println(m_dictionary.contains(test.toString()));
 			System.out.println(m_dictionary.contains(test2));
 			System.out.println(m_dictionary.contains(test3));
-			*/
 			
 			buffRead.close();
 		}
@@ -102,10 +100,9 @@ public class VigenereCipherTester
 		}
 		
 		//first word deciphered, now being checked:
-		String testThisWord = new String(firstWordDeciphered);
-		if(m_dictionary.contains(testThisWord))
+		if(m_dictionary.contains(firstWordDeciphered.toString()))
 		{
-			System.out.println("Found a word: " + testThisWord);
+			System.out.println("Found a word: " + firstWordDeciphered.toString());
 			decipherWholeText(keyHolder);
 		}
 	}
@@ -123,7 +120,7 @@ public class VigenereCipherTester
 		
 		for(int x=0; x<m_cipherText.length; x++)
 		{
-			tempNumber = m_cipherTextNumbers[x] - keyHolder[x%keyLength];
+			tempNumber = m_cipherText[x] - keyHolder[x%keyLength];
 			if(tempNumber <0)
 			{
 				//this means it's negative, and has to roll around to undo the modulus
@@ -137,10 +134,9 @@ public class VigenereCipherTester
 		{
 			alphabeticKey[x] = convertToLetter(keyHolder[x]);
 		}
-		String plaintext = new String(decipheredText);
-		String key = new String(alphabeticKey);
-		System.out.println(plaintext + " " + key);
-		writeToFile(plaintext, key);
+		
+		writeToFile(decipheredText.toString(), alphabeticKey.toString());
+		//writeToFile(toString(),toString());
 	}
 	
 	/* @PRE: decipherWholeText has successfully run

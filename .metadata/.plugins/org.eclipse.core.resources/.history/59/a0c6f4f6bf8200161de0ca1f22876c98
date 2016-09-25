@@ -123,7 +123,7 @@ public class VigenereCipherTester
 		
 		for(int x=0; x<m_cipherText.length; x++)
 		{
-			tempNumber = m_cipherTextNumbers[x] - keyHolder[x%keyLength];
+			tempNumber = m_cipherText[x] - keyHolder[x%keyLength];
 			if(tempNumber <0)
 			{
 				//this means it's negative, and has to roll around to undo the modulus
@@ -137,10 +137,9 @@ public class VigenereCipherTester
 		{
 			alphabeticKey[x] = convertToLetter(keyHolder[x]);
 		}
-		String plaintext = new String(decipheredText);
-		String key = new String(alphabeticKey);
-		System.out.println(plaintext + " " + key);
-		writeToFile(plaintext, key);
+		
+		writeToFile(decipheredText.toString(), alphabeticKey.toString());
+		//writeToFile(toString(),toString());
 	}
 	
 	/* @PRE: decipherWholeText has successfully run
