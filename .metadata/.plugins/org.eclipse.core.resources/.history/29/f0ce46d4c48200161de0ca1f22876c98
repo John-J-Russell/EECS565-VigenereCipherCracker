@@ -25,10 +25,6 @@ public class VigenereCipherTesterDriver
 	
 	
 	//exists only as a gateway to the user input
-	//rendered redundant by LaunchFromHere.java
-	//done this way so as to not require making functions static
-	//I really wanted to keep the progression of this linear, and not open the
-	//ability for people to run methods without the proper order.
 	/* @PRE: none
 	 * @POST: will have called getUserInput()
 	 * @RETURN: none
@@ -39,7 +35,7 @@ public class VigenereCipherTesterDriver
 	}
 	
 	/* @PRE: none
-	 * @POST: gathers input, makes tester object, instantiates m_keyHolder, calls generateAllKeys()
+	 * @POST: gathers input, makes tester object, instantiates m_keyHolder calls generateAllKeys()
 	 * @RETURN: none
 	 */
 	public void getUserInput()
@@ -120,7 +116,7 @@ public class VigenereCipherTesterDriver
 	 * @POST:	Every possible key of combination keyLength will have been generated and tested in the cipherTester.testKey function
 	 * @RETURN:	none
 	 */
-	private void generateAllKeys()
+	public void generateAllKeys()
 	{
 		int[] lastCombination = new int[m_keyHolder.length];
 		for(int x=0; x<m_keyHolder.length; x++)

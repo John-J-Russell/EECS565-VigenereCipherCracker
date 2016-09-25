@@ -6,10 +6,6 @@
 public class LaunchFromHere 
 {
 
-	/* @PRE: none
-	 * @POST: starts the whole cipher testing process
-	 * @RETURN: none
-	 */
 	public static void main(String[] args) 
 	{
 		VigenereCipherTesterDriver doit = new VigenereCipherTesterDriver();

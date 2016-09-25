@@ -25,10 +25,6 @@ public class VigenereCipherTesterDriver
 	
 	
 	//exists only as a gateway to the user input
-	//rendered redundant by LaunchFromHere.java
-	//done this way so as to not require making functions static
-	//I really wanted to keep the progression of this linear, and not open the
-	//ability for people to run methods without the proper order.
 	/* @PRE: none
 	 * @POST: will have called getUserInput()
 	 * @RETURN: none
@@ -38,8 +34,8 @@ public class VigenereCipherTesterDriver
 		getUserInput();
 	}
 	
-	/* @PRE: none
-	 * @POST: gathers input, makes tester object, instantiates m_keyHolder, calls generateAllKeys()
+	/* @PRE: is called by main
+	 * @POST: gathers input, makes tester object, calls generateAllKeys()
 	 * @RETURN: none
 	 */
 	public void getUserInput()
@@ -75,7 +71,7 @@ public class VigenereCipherTesterDriver
 		
 		//Getting a valid file destination: must not exist previously, and must be a valid name.
 		System.out.println("Now enter the file name you wish to save this to.  \nGo ahead and omit the \".txt\" and don't leave any spaces. \n"
-				+ "Output file will be saved in the project-level folder.");
+				+ " Output file will be saved in the project-level folder.");
 		
 		outputFileDestination = input.nextLine();
 		outputFinalName = outputFileDestination+".txt";
@@ -87,7 +83,7 @@ public class VigenereCipherTesterDriver
 			while(filename.exists())
 			{
 				System.out.println("Now enter the file name you wish to save this to.  \nGo ahead and omit the \".txt\" and don't leave any spaces. \n"
-						+ "Output file will be saved in the project-level folder.");
+						+ " Output file will be saved in the project-level folder.");
 				
 				outputFileDestination = input.nextLine();
 				outputFinalName = outputFileDestination+".txt";
@@ -116,11 +112,7 @@ public class VigenereCipherTesterDriver
 		generateAllKeys();
 	}
 	
-	/* @PRE:	m_keyHolder has been instantiated with the correct length, and m_cipherTester has been constructed with valid values
-	 * @POST:	Every possible key of combination keyLength will have been generated and tested in the cipherTester.testKey function
-	 * @RETURN:	none
-	 */
-	private void generateAllKeys()
+	public void generateAllKeys()
 	{
 		int[] lastCombination = new int[m_keyHolder.length];
 		for(int x=0; x<m_keyHolder.length; x++)
@@ -137,10 +129,6 @@ public class VigenereCipherTesterDriver
 		m_cipherTester.testKey(lastCombination);
 	}
 	
-	/* @PRE:	m_keyHolder exists and is instantiated with a value
-	 * @POST:	After having called and run through incrementKeyRecursive, the key will be incremented by one
-	 * @RETURN:	none
-	 */
 	private void incrementKey()
 	{
 		int errorCheck = 0;
@@ -151,12 +139,6 @@ public class VigenereCipherTesterDriver
 		}
 	}
 	
-	/* @PRE:	Function is passed the proper numbers, where final position is the key array size -1, and the current position starts at zero
-	 * @POST:	The key is incremented much like a clock, where upon reaching 26 the value rolls over and the next highest "rung" of the key
-	 * 			increases by one each time the rollover occurs.
-	 * @RETURN:	An integer value of either zero or one. One means that the next value up must increment, while zero means it doesn't.
-	 * 			If at the highest level it returns one, then incrementKey alerts via the console of this error.
-	 */
 	private int incrementKeyRecursive(int finalPosition, int currentPosition)
 	{
 		//System.out.println(m_keyHolder[0] + "," + m_keyHolder[1]);
