@@ -4,10 +4,12 @@ A Java program that takes ciphertext, the key length, and the first word length 
 Information taken from:
 
 The Java Documentation
+
 https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html
 https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html
 https://docs.oracle.com/javase/tutorial/essential/io/file.html#creating
 https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html
+https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html
 
 
 StackOverflow users nbro and Sean A.O. Harney in this thread:
